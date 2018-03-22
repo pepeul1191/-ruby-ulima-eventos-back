@@ -74,4 +74,30 @@ class MyApp < Sinatra::Base
         }.to_json
     end
   end
+
+  get '/evento/_id/:_id' do
+    _id = params[:_id]
+    error = false
+    execption = nil
+    evento = nil
+    begin
+      evento = Evento.find(BSON::ObjectId.from_string(_id))
+    rescue Exception => e
+      error = true
+      execption = e
+    end
+    if error == false
+      return evento.to_json
+    else
+      status 500
+      return {
+        :tipo_mensaje => 'error',
+        :mensaje =>
+          [
+            'Se ha producido un error en Obtener el evento por su nombre_url',
+            execption.message
+          ]
+        }.to_json
+    end
+  end
 end

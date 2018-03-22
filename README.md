@@ -43,7 +43,9 @@ Estructura de 'externos':
 
 ### TODO
 
-+ Falta validación para controlar error de que todos los campos llenos estén presentes para crear un evento, porque si no están completos no lo graba, pero tampoco muestra mensaje de error.
++ Validación para controlar error de que todos los campos llenos estén presentes para crear un evento, porque si no están completos no lo graba, pero tampoco muestra mensaje de error.
++ Cambiar Evento.destroy(array) por una interación donde se borre el documento siempre y cuando exista.
++ Cambiar Externo.destroy(array) por una interación donde se borre el documento siempre y cuando exista.
 
 # Fuentes:
 

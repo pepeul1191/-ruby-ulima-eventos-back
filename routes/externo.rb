@@ -119,4 +119,30 @@ class MyApp < Sinatra::Base
        }.to_json
    end
  end
+
+ get '/externo/_id/:_id' do
+   _id = params[:_id]
+   error = false
+   execption = nil
+   evento = nil
+   begin
+     evento = Externo.find(BSON::ObjectId.from_string(_id))
+   rescue Exception => e
+     error = true
+     execption = e
+   end
+   if error == false
+     return evento.to_json
+   else
+     status 500
+     return {
+       :tipo_mensaje => 'error',
+       :mensaje =>
+         [
+           'Se ha producido un error en obtener el participante externo por su _id',
+           execption.message
+         ]
+       }.to_json
+   end
+ end
 end

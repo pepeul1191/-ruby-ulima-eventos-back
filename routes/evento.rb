@@ -136,7 +136,7 @@ class MyApp < Sinatra::Base
         :tipo_mensaje => 'error',
         :mensaje =>
           [
-            'Se ha producido un error en Obtener el evento por su nombre_url',
+            'Se ha producido un error en obtener el evento por su _id',
             execption.message
           ]
         }.to_json

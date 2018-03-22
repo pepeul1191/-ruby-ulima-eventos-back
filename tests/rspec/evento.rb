@@ -159,7 +159,7 @@ def eliminar
   end
 end
 
-#crear
+crear
 #editar
 #nombre_url
-eliminar
+#eliminar

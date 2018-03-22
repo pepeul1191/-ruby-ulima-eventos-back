@@ -8,6 +8,22 @@
 
 +
 
+Estructura de 'eventos':
+
+```javascript
+	{
+	     _id: autogenrado,
+	    nombre: String,
+      descripcion: String,
+	    nombre_url: String,
+	    dia_inicio: Date,
+	    dia_fin: Date,
+	    hora_inicio: String,
+	    hora_fin: String,
+	    lugar String,
+	    direccion: String
+  }
+
 ### TODO
 
 + Falta validación para controlar error de que todos los campos llenos estén presentes para crear un evento, porque si no están completos no lo graba, pero tampoco muestra mensaje de error.

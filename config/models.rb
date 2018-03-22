@@ -30,3 +30,17 @@ class Evento
   key :lugar, String, :required => true
   key :direccion, String, :required => true
 end
+
+class Externo
+  include ::ActiveModel::Serialization
+  include ::ActiveModel::Serializers::Xml
+  include ::ActiveModel::Serializers::JSON
+  include MongoMapper::Document
+
+  key :dni, String, :required => true
+  key :nombres, String, :required => true
+  key :paterno, String, :required => true
+  key :materno, String, :required => true
+  key :correo, String, :required => true
+  key :telefono, String, :required => true
+end

@@ -101,4 +101,6 @@ def eliminar
   end
 end
 
-eliminar
+crear
+#editar
+#eliminar

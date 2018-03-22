@@ -2,11 +2,13 @@
 
 ### Antes de usar
 
-  $ bundler install
+    $ bundler install
 
 ### Rutas
 
 +
+
+### Estructura de las colecciones de la base de datos
 
 Estructura de 'eventos':
 
@@ -23,6 +25,21 @@ Estructura de 'eventos':
 	    lugar String,
 	    direccion: String
   }
+```
+
+Estructura de 'externos':
+
+```javascript
+	{
+	     _id: autogenrado,
+       dni : String,
+       nombres : String,
+       paterno : String,
+       materno : String,
+       correo : String,
+       telefono : String
+  }
+```
 
 ### TODO
 

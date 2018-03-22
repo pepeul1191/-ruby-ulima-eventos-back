@@ -25,8 +25,8 @@ class Evento
   key :descripcion, String, :required => true
   key :dia_inicio, Time, :required => true
   key :dia_fin, Time, :required => true
-  key :hora_inicio, Time, :required => true
-  key :hora_fin, Time, :required => true
+  key :hora_inicio, String, :required => true
+  key :hora_fin, String, :required => true
   key :lugar, String, :required => true
   key :direccion, String, :required => true
 end

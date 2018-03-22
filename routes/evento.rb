@@ -26,10 +26,52 @@ class MyApp < Sinatra::Base
       execption = e
     end
     if error == false
-      return {:tipo_mensaje => 'success', :mensaje => ['Se ha registrado el evento', evento.id.to_s]}.to_json
+      return {
+        :tipo_mensaje => 'success',
+        :mensaje =>
+          [
+            'Se ha registrado el evento',
+            evento.id.to_s
+          ]
+        }.to_json
     else
       status 500
-      return {:tipo_mensaje => 'error', :mensaje => ['Se ha producido un error en guardar el nuevo evento', execption.message]}.to_json
+      return {
+        :tipo_mensaje => 'error',
+        :mensaje =>
+          [
+            'Se ha producido un error en guardar el nuevo evento',
+            execption.message
+          ]
+        }.to_json
+    end
+  end
+
+  get '/evento/nombre_url' do
+    nombre_url = params[:nombre_url]
+    error = false
+    execption = nil
+    evento = nil
+    begin
+      evento = Evento.first(
+        :nombre_url => nombre_url
+      )
+    rescue Exception => e
+      error = true
+      execption = e
+    end
+    if error == false
+      return evento.to_json
+    else
+      status 500
+      return {
+        :tipo_mensaje => 'error',
+        :mensaje =>
+          [
+            'Se ha producido un error en Obtener el evento por su nombre_url',
+            execption.message
+          ]
+        }.to_json
     end
   end
 end

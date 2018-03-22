@@ -6,7 +6,11 @@
 
 ### Rutas
 
-  +
++
+
+### TODO
+
++ Falta validación para controlar error de que todos los campos llenos estén presentes para crear un evento, porque si no están completos no lo graba, pero tampoco muestra mensaje de error.
 
 # Fuentes:
 

@@ -17,7 +17,7 @@ def crear
           :nombre_url => 'biopolimero-a-partir-del-almidón-de-papa',
           :descripcion => '<h1>titulo</h1><p>hola</br>mundo</p>',
           :dia_inicio => '22/07/2015',
-          :dia_fin => '22/07/2015',
+          :dia_fin => '25/07/2015',
           :hora_inicio => '14.00',
           :hora_fin => '16:00',
           :lugar => 'Auditorio Edificio S',
@@ -85,7 +85,7 @@ def nombre_url
         expect(test.response.code).to eq(200)
       end
       it '3.2 Obtener evento' do
-        data = 'biopolimero-a-partir-del-almidon-de-papa-xd'
+        data = 'biopolimero-a-partir-del-almidón-de-papa'
         url = 'evento/nombre_url?nombre_url=' + data
         test = App.new(url)
         test.get()
@@ -142,5 +142,5 @@ end
 
 crear
 #editar
-#nombre_url
+nombre_url
 #eliminar

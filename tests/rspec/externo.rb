@@ -84,7 +84,10 @@ def eliminar
           ],
           :editados => [
           ],
-          :eliminados => ['5aad82bcf1f2f57200000001']
+          :eliminados => [
+            '5ab3c3d3ef09513848000001',
+            '5ab3c3f5ef095138e3000001'
+          ]
         }.to_json
         url = 'externo/guardar?data=' + data
         test = App.new(url)
@@ -102,5 +105,5 @@ def eliminar
 end
 
 #crear
-editar
-#eliminar
+#editar
+eliminar

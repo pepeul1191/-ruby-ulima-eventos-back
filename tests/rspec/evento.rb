@@ -123,7 +123,26 @@ def eliminar
           ],
           :editados => [
           ],
-          :eliminados => ['5aad18f1409a931a00000000', '5aad18f8409a931a00000001']
+          :eliminados => [
+            '5ab3b5ffef09517a7c000001',
+            '5ab3b615ef09517b37000001',
+            '5ab3b677ef09517ce1000001',
+            '5ab3b731ef09517fce000001',
+            '5ab3b757ef0951020d000001',
+            '5ab3b7deef09510405000001',
+            '5ab3b8e2ef09510882000001',
+            '5ab3b8fcef0951091e000001',
+            '5ab3b90eef09510a06000001',
+            '5ab3b93cef09510af3000001',
+            '5ab3b959ef09510b9a000001',
+            '5ab3b97fef09510c37000001',
+            '5ab3b997ef09510cbb000001',
+            '5ab3b9e8ef09510dd6000001',
+            '5ab3ba1def09510ea8000001',
+            '5ab3ba40ef09510f79000001',
+            '5ab3ba4cef09510fe1000001',
+            '5ab3bb51ef09511438000001',
+          ]
         }.to_json
         url = 'evento/guardar?data=' + data
         test = App.new(url)
@@ -141,6 +160,6 @@ def eliminar
 end
 
 #crear
-editar
+#editar
 #nombre_url
-#eliminar
+eliminar

@@ -1,13 +1,15 @@
 require_relative './database'
 
-class Departamento < Sequel::Model(DB[:departamentos])
+class Blog
+  include ::ActiveModel::Serialization
+  include ::ActiveModel::Serializers::Xml
+  include ::ActiveModel::Serializers::JSON
+  include MongoMapper::Document
 
-end
-
-class Provincia < Sequel::Model(DB[:provincias])
-
-end
-
-class Distrito < Sequel::Model(DB[:distritos])
-
+  key :first_name, String
+  key :last_name, String
+  key :age, Integer
+  key :born_at, Time
+  key :active, Boolean
+  key :fav_colors, Array
 end

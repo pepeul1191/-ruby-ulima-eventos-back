@@ -46,7 +46,7 @@ def editar
       end
       it '2.2 Editar externo' do
         data = {
-          :_id => '5aad83a589095b5a00000000',
+          :_id => '5ab3c3d3ef09513848000001',
           :dni => '70232385',
           :nombres => 'Carlosx Albertox',
           :paterno => 'Tevez x',
@@ -54,7 +54,7 @@ def editar
           :correo => 'carlitos@cabj.agr',
           :telefono => '819234-12312123',
         }.to_json
-        url = 'externo/editar?evento=' + data
+        url = 'externo/editar?externo=' + data
         test = App.new(url)
         test.post()
         if test.response.code != 200 then
@@ -101,6 +101,6 @@ def eliminar
   end
 end
 
-crear
-#editar
+#crear
+editar
 #eliminar

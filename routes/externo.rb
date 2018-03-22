@@ -43,4 +43,43 @@ class MyApp < Sinatra::Base
         }.to_json
     end
   end
+
+  post '/externo/editar' do
+    data = JSON.parse(params[:externo])
+    error = false
+    execption = nil
+    externo = nil
+    begin
+      externo = Externo.find(BSON::ObjectId.from_string(data['_id']))
+      externo.dni = data['dni']
+      externo.nombres = data['nombres']
+      externo.paterno = data['paterno']
+      externo.materno = data['materno']
+      externo.correo = data['correo']
+      externo.telefono = data['telefono']
+      externo.save
+    rescue Exception => e
+      error = true
+      execption = e
+    end
+    if error == false
+      return {
+        :tipo_mensaje => 'success',
+        :mensaje =>
+          [
+            'Se ha editado el participante externo'
+          ]
+        }.to_json
+    else
+      status 500
+      return {
+        :tipo_mensaje => 'error',
+        :mensaje =>
+          [
+            'Se ha producido un error en guardar al participante externo editado',
+            execption.message
+          ]
+        }.to_json
+    end
+  end
 end

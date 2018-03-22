@@ -14,16 +14,16 @@ Estructura de 'eventos':
 
 ```javascript
 	{
-	     _id: autogenrado,
-	    nombre: String,
-      descripcion: String,
-	    nombre_url: String,
-	    dia_inicio: Date,
-	    dia_fin: Date,
-	    hora_inicio: String,
-	    hora_fin: String,
-	    lugar String,
-	    direccion: String
+     _id: autogenrado,
+    nombre: String,
+    descripcion: String,
+    nombre_url: String,
+    dia_inicio: Date,
+    dia_fin: Date,
+    hora_inicio: String,
+    hora_fin: String,
+    lugar String,
+    direccion: String
   }
 ```
 
@@ -31,13 +31,13 @@ Estructura de 'externos':
 
 ```javascript
 	{
-	     _id: autogenrado,
-       dni : String,
-       nombres : String,
-       paterno : String,
-       materno : String,
-       correo : String,
-       telefono : String
+    _id: autogenrado,
+    dni : String,
+    nombres : String,
+    paterno : String,
+    materno : String,
+    correo : String,
+    telefono : String
   }
 ```
 

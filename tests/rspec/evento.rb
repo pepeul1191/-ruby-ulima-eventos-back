@@ -49,7 +49,7 @@ def editar
       end
       it '2.2 Editar evento' do
         data = {
-          :_id => '5aad032db409546800000000',
+          :_id => '5ab3b5ffef09517a7c000001',
           :nombre => 'Biopolímero a partir del almidón de papa XD',
           :nombre_url => 'biopolimero-a-partir-del-almidon-de-papa-xd',
           :descripcion => '<h1>titulo m</h1><p>hola</br>mundo<br><b>XD</b></p>',
@@ -140,7 +140,7 @@ def eliminar
   end
 end
 
-crear
-#editar
-nombre_url
+#crear
+editar
+#nombre_url
 #eliminar

@@ -46,3 +46,27 @@ class Externo
   key :correo, String, :required => true
   key :telefono, String, :required => true
 end
+
+class Participante
+  include ::ActiveModel::Serialization
+  include ::ActiveModel::Serializers::Xml
+  include ::ActiveModel::Serializers::JSON
+  include MongoMapper::EmbeddedDocument
+
+  key :dni, String
+  key :nombres, String
+  key :paterno, String
+  key :materno, String
+  key :correo, String
+  key :telefono, String
+  key :procedencia, String
+end
+
+class ParticipanteEvento
+  include ::ActiveModel::Serialization
+  include ::ActiveModel::Serializers::Xml
+  include ::ActiveModel::Serializers::JSON
+  include MongoMapper::Document
+
+  many :participantes
+end

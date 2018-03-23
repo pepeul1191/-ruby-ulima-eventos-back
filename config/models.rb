@@ -68,6 +68,6 @@ class ParticipanteEvento
   include ::ActiveModel::Serializers::JSON
   include MongoMapper::Document
 
-  key :evneto_id, ObjectId
+  key :evento_id, ObjectId
   many :participantes
 end

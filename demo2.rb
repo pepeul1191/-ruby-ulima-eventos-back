@@ -50,7 +50,7 @@ def crear
   }
 
   participante_evento = ParticipanteEvento.create(
-    :evneto_id => BSON::ObjectId.from_string(evento_id),
+    :evento_id => BSON::ObjectId.from_string(evento_id),
     :participantes => [
       Participante.new(participante_data_1),
       Participante.new(participante_data_2),
@@ -60,11 +60,38 @@ def crear
 end
 
 def agregar
-  evento_id = '5ab4640eef095131aa000001'
+  evento_id = '5ab465dbef095132e4000001'
   participante_evento = ParticipanteEvento.first(
     :evento_id => BSON::ObjectId.from_string(evento_id)
   )
-  puts participante_evento.to_json
+
+  participante_data_1 = {
+    :dni => '70232385',
+    :nombres => 'Carlos Alberto',
+    :paterno => 'Tevez x',
+    :materno => 'Martinez',
+    :correo => 'carlitos@cabj.ar',
+    :telefono => '819234-12312',
+    :procedencia => 'empleado',
+  }
+  participante_data_2 = {
+    :dni => '70232385',
+    :nombres => 'Carlos',
+    :paterno => 'Tevez',
+    :materno => 'Chao',
+    :correo => 'carlitos@uni.pe',
+    :telefono => '819234-12312',
+    :procedencia => 'alumno',
+  }
+
+  participante_evento.participantes.push(
+    Participante.new(participante_data_1)
+  )
+  participante_evento.participantes.push(
+    Participante.new(participante_data_2)
+  )
+  participante_evento.save
 end
 
+#crear
 agregar

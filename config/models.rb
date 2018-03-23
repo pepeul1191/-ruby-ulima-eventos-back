@@ -37,7 +37,6 @@ class Externo
   include ::ActiveModel::Serializers::Xml
   include ::ActiveModel::Serializers::JSON
   include MongoMapper::Document
-  include MongoMapper::EmbeddedDocument
 
   key :dni, String, :required => true
   key :nombres, String, :required => true
@@ -59,8 +58,61 @@ class Participante
   key :materno, String
   key :correo, String
   key :telefono, String
-  key :procedencia, String
 end
+
+class Empleado
+  include ::ActiveModel::Serialization
+  include ::ActiveModel::Serializers::Xml
+  include ::ActiveModel::Serializers::JSON
+  include MongoMapper::EmbeddedDocument
+
+  key :empleado_id, Integer
+  key :dni, String
+  key :nombres, String
+  key :paterno, String
+  key :materno, String
+  key :correo_personal, String
+  key :correo_laboral, String
+  key :correo_adicional, String
+  key :telefono_adicional, String
+  key :cargo, String
+  key :telefono, String
+end
+
+class Alumno
+  include ::ActiveModel::Serialization
+  include ::ActiveModel::Serializers::Xml
+  include ::ActiveModel::Serializers::JSON
+  include MongoMapper::EmbeddedDocument
+
+  key :alumno_id, Integer
+  key :dni, String
+  key :nombres, String
+  key :paterno, String
+  key :materno, String
+  key :correo_personal, String
+  key :correo_alumno, String
+  key :correo_adicional, String
+  key :telefono_adicional, String
+  key :carrera, String
+  key :telefono, String
+end
+
+class Participante
+  include ::ActiveModel::Serialization
+  include ::ActiveModel::Serializers::Xml
+  include ::ActiveModel::Serializers::JSON
+  include MongoMapper::EmbeddedDocument
+
+  key :externo_id, ObjectId
+  key :dni, String
+  key :nombres, String
+  key :paterno, String
+  key :materno, String
+  key :correo, String
+  key :telefono, String
+end
+
 
 class ParticipanteEvento
   include ::ActiveModel::Serialization
@@ -70,4 +122,6 @@ class ParticipanteEvento
 
   key :evento_id, ObjectId
   many :participantes
+  many :alumnos
+  many :empleados
 end

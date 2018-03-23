@@ -1,6 +1,22 @@
 require_relative 'config/database'
 require_relative 'config/models'
 
+def crear_externo
+  data = {
+    :dni => '70232385',
+    :nombres => 'Carlos',
+    :paterno => 'Tevez',
+    :materno => 'Chao',
+    :correo => 'carlitos@uni.pe',
+    :telefono => '819234-12312',
+    :procedencia => 'externo',
+  }
+
+  externo = Externo.create(data)
+  externo.save
+  puts "XXXXXXXXXXXXXXXXXXXXXXXX"
+end
+
 def crear
   data = {
     :nombre => 'Biopolímero a partir del almidón de papa',
@@ -94,4 +110,5 @@ def agregar
 end
 
 #crear
-agregar
+#agregar
+crear_externo

@@ -21,6 +21,11 @@ class MyApp < Sinatra::Base
         :direccion => data['direccion'],
       })
       evento.save
+      evento_id = evento.id.to_s
+      participante_evento = ParticipanteEvento.create(
+        :evento_id => BSON::ObjectId.from_string(evento_id),
+      )
+      participante_evento.save
     rescue Exception => e
       error = true
       execption = e

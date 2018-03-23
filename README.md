@@ -41,6 +41,16 @@ Estructura de 'externos':
 }
 ```
 
+### Backup y Restore la Base de Datos Mongo
+
+Para realizar un backup de un base de datos incluyendo los stored functions.
+
+    $ mongodump --db eventos --out db
+
+Para restaurar
+
+    $ mongorestore -d eventos db/eventos
+
 ### TODO
 
 + Validación para controlar error de que todos los campos llenos estén presentes para crear un evento, porque si no están completos no lo graba, pero tampoco muestra mensaje de error.

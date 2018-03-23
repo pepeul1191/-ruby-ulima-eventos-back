@@ -5,6 +5,7 @@ class Blog
   include ::ActiveModel::Serializers::Xml
   include ::ActiveModel::Serializers::JSON
   include MongoMapper::Document
+  include MongoMapper::EmbeddedDocument
 
   key :first_name, String
   key :last_name, String
@@ -36,6 +37,7 @@ class Externo
   include ::ActiveModel::Serializers::Xml
   include ::ActiveModel::Serializers::JSON
   include MongoMapper::Document
+  include MongoMapper::EmbeddedDocument
 
   key :dni, String, :required => true
   key :nombres, String, :required => true

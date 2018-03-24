@@ -46,20 +46,6 @@ class Externo
   key :telefono, String, :required => true
 end
 
-class Participante
-  include ::ActiveModel::Serialization
-  include ::ActiveModel::Serializers::Xml
-  include ::ActiveModel::Serializers::JSON
-  include MongoMapper::EmbeddedDocument
-
-  key :dni, String
-  key :nombres, String
-  key :paterno, String
-  key :materno, String
-  key :correo, String
-  key :telefono, String
-end
-
 class Empleado
   include ::ActiveModel::Serialization
   include ::ActiveModel::Serializers::Xml

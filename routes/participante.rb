@@ -98,7 +98,55 @@ class MyApp < Sinatra::Base
         :tipo_mensaje => 'error',
         :mensaje =>
           [
-            'Se ha producido un error en guardar su particpación como alumno',
+            'Se ha producido un error en guardar su particpación como empleado',
+            execption.message
+          ]
+        }.to_json
+    end
+  end
+
+  post '/participante/externo/agregar' do
+    data = JSON.parse(params[:data])
+    evento_id = data['evento_id']
+    error = false
+    execption = nil
+    alumno = nil
+    begin
+      participante_evento = ParticipanteEvento.first(
+        :evento_id => BSON::ObjectId.from_string(evento_id)
+      )
+      externo = {
+        :externo_id => BSON::ObjectId.from_string(data['externo_id']),
+        :dni => data['dni'],
+        :nombres => data['nombres'],
+        :paterno => data['paterno'],
+        :materno => data['materno'],
+        :correo => data['correo'],
+        :telefono => data['telefono'],
+      }
+      participante_evento.participantes.push(
+        Participante.new(externo)
+      )
+      participante_evento.save
+    rescue Exception => e
+      error = true
+      execption = e
+    end
+    if error == false
+      return {
+        :tipo_mensaje => 'success',
+        :mensaje =>
+          [
+            'Se ha registrado su participación',
+          ]
+        }.to_json
+    else
+      status 500
+      return {
+        :tipo_mensaje => 'error',
+        :mensaje =>
+          [
+            'Se ha producido un error en guardar su particpación como externo',
             execption.message
           ]
         }.to_json
